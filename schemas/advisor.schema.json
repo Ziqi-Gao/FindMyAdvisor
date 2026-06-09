@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AdvisorCandidate",
+  "type": "object",
+  "required": ["faculty_name", "university", "program", "status", "source_urls"],
+  "properties": {
+    "faculty_name": { "type": "string" },
+    "university": { "type": "string" },
+    "department": { "type": "string" },
+    "program": { "type": "string" },
+    "field": { "enum": ["CS", "Statistics", "Biostatistics", "Interdisciplinary", "Unknown"] },
+    "email": { "type": "string" },
+    "website": { "type": "string" },
+    "research_keywords": { "type": "array", "items": { "type": "string" } },
+    "fit_score": { "type": "number", "minimum": 0, "maximum": 10 },
+    "evidence_strength": { "enum": ["high", "medium", "low", "unknown"] },
+    "funding_signal": { "enum": ["strong", "medium", "weak", "unknown"] },
+    "admissions_path": { "enum": ["direct-advisor", "rotation", "program-level", "committee", "unknown"] },
+    "status": { "enum": ["longlist", "shortlist", "A", "B", "C", "removed", "contacted", "replied"] },
+    "risks": { "type": "array", "items": { "type": "string" } },
+    "unknowns": { "type": "array", "items": { "type": "string" } },
+    "source_urls": { "type": "array", "items": { "type": "string" } },
+    "last_checked": { "type": "string" }
+  }
+}

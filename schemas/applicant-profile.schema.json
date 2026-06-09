@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ApplicantProfile",
+  "type": "object",
+  "required": ["cycle", "target_region", "fields", "research_interests"],
+  "properties": {
+    "cycle": { "type": "string" },
+    "target_region": { "type": "string" },
+    "fields": {
+      "type": "array",
+      "items": { "enum": ["CS", "Statistics", "Biostatistics", "Interdisciplinary"] }
+    },
+    "research_interests": { "type": "array", "items": { "type": "string" } },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "problem", "methods", "role"],
+        "properties": {
+          "title": { "type": "string" },
+          "problem": { "type": "string" },
+          "methods": { "type": "array", "items": { "type": "string" } },
+          "data": { "type": "string" },
+          "result": { "type": "string" },
+          "role": { "type": "string" },
+          "artifacts": { "type": "array", "items": { "type": "string" } },
+          "advisor_keywords": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "constraints": { "type": "object" }
+  }
+}
