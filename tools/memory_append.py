@@ -8,6 +8,12 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
+ACTORS = {"Codex", "User", "Applicant", "Human reviewer", "Subagent", "Automation", "System"}
+OBJECT_TYPES = {
+    "applicant_profile", "search_batch", "faculty", "program", "evidence", "risk", "dossier", "paper",
+    "funding", "program_requirement", "outreach", "reply", "meeting", "decision", "weekly_review", "handoff",
+    "source", "snapshot",
+}
 EVENT_TYPES = {
     "applicant_profile_updated", "search_batch_started", "faculty_discovered", "faculty_screened", "faculty_archived",
     "faculty_priority_changed", "dossier_created", "dossier_updated", "evidence_added", "evidence_revised",
@@ -15,23 +21,24 @@ EVENT_TYPES = {
     "outreach_drafted", "outreach_audited", "outreach_approved", "outreach_sent", "reply_received",
     "meeting_logged", "decision_made", "weekly_review_completed", "handoff_written",
 }
+RISK_LEVELS = ["none", "low", "medium", "high", "blocking", "unknown"]
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Append an advisor memory event.")
     parser.add_argument("--events", default=".advisor-memory/events.jsonl")
     parser.add_argument("--event-type", required=True, choices=sorted(EVENT_TYPES))
-    parser.add_argument("--object-type", required=True)
+    parser.add_argument("--object-type", required=True, choices=sorted(OBJECT_TYPES))
     parser.add_argument("--object-id", required=True)
     parser.add_argument("--summary", required=True)
-    parser.add_argument("--actor", default="Codex")
+    parser.add_argument("--actor", choices=sorted(ACTORS), default="Codex")
     parser.add_argument("--faculty-id")
     parser.add_argument("--program-id")
     parser.add_argument("--claim-id", action="append", default=[])
     parser.add_argument("--source-id", action="append", default=[])
     parser.add_argument("--evidence-note", default="")
     parser.add_argument("--confidence", choices=["low", "medium", "high", "unknown"], default="medium")
-    parser.add_argument("--risk-level", choices=["none", "low", "medium", "high", "blocking"], default="none")
+    parser.add_argument("--risk-level", choices=RISK_LEVELS, default="none")
     parser.add_argument("--next-action", action="append", default=[])
     parser.add_argument("--file-touched", action="append", default=[])
     parser.add_argument("--human-approval-required", action="store_true")
@@ -39,6 +46,8 @@ def main(argv=None):
     args = parser.parse_args(argv)
     if args.human_approved and not args.human_approval_required:
         raise SystemExit("human approval cannot be marked approved unless approval was required")
+    if args.event_type in {"outreach_approved", "outreach_sent"} and (not args.human_approval_required or not args.human_approved):
+        raise SystemExit(f"{args.event_type} requires --human-approval-required and --human-approved")
     now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
     event = {
         "event_id": "evt_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S") + "_" + uuid.uuid4().hex[:8],

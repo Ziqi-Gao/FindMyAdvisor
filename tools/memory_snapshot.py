@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 WARNING = "CSV trackers remain operational truth. Memory snapshots are generated read models, not source of truth."
+RISK_SNAPSHOT_LEVELS = {"medium", "high", "blocking", "unknown"}
 
 
 def read_events(path: Path):
@@ -38,7 +39,7 @@ def build_snapshots(events):
         current_state.append(f"- {label}")
         for action in event.get("next_actions", []):
             next_actions.append(f"- {event['event_id']}: {action}")
-        if event.get("risk_level") in {"medium", "high", "blocking"} or event.get("event_type") == "risk_added":
+        if event.get("risk_level") in RISK_SNAPSHOT_LEVELS or event.get("event_type") == "risk_added":
             risks.append(f"- {event['risk_level']}: {label}")
     return current_state, next_actions, risks
 

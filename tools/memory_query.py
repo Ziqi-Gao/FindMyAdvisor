@@ -6,6 +6,8 @@ import argparse
 import json
 from pathlib import Path
 
+RISK_QUERY_LEVELS = {"medium", "high", "blocking", "unknown"}
+
 
 def read_events(path: Path):
     if not path.exists():
@@ -38,7 +40,7 @@ def main(argv=None):
                 print_event(event)
     elif args.command == "risks":
         for event in events:
-            if event.get("risk_level") in {"medium", "high", "blocking"} or event.get("event_type") == "risk_added":
+            if event.get("risk_level") in RISK_QUERY_LEVELS or event.get("event_type") == "risk_added":
                 print_event(event)
     elif args.command == "next-actions":
         for event in events:
