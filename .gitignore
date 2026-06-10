@@ -1,0 +1,9 @@
+# Local/private advisor memory and applicant materials. Real applicant memory must stay local/private.
+.advisor-memory/
+data/private/
+docs/private/
+dossiers/private/
+outreach/private/
+*.local.csv
+*.eml
+.env

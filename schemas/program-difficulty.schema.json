@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProgramDifficulty",
+  "type": "object",
+  "required": [
+    "program_id",
+    "faculty_id",
+    "school",
+    "program",
+    "faculty_name",
+    "fit_score",
+    "difficulty_score",
+    "difficulty_tier",
+    "portfolio_bucket",
+    "source_urls",
+    "last_checked"
+  ],
+  "properties": {
+    "program_id": { "type": "string" },
+    "faculty_id": { "type": "string" },
+    "school": { "type": "string" },
+    "program": { "type": "string" },
+    "faculty_name": { "type": "string" },
+    "fit_score": { "type": "number", "minimum": 0, "maximum": 5 },
+    "difficulty_score": { "type": "number", "minimum": 0, "maximum": 10 },
+    "difficulty_tier": {
+      "enum": ["fit-probe", "target", "target-reach", "reach", "high-reach", "moonshot", "unknown"]
+    },
+    "portfolio_bucket": {
+      "enum": ["target", "target-reach", "reach", "high-reach", "moonshot", "defer", "archive", "unknown"]
+    },
+    "adjusted_priority": {
+      "enum": ["apply", "maybe", "defer", "archive", "unknown"]
+    },
+    "difficulty_confidence": {
+      "enum": ["high", "medium_high", "medium", "low"]
+    },
+    "penalty_reasons": { "type": "array", "items": { "type": "string" } },
+    "positive_offsets": { "type": "array", "items": { "type": "string" } },
+    "admissions_path_signal": { "type": "string" },
+    "capacity_signal": { "type": "string" },
+    "applicant_profile_signal": { "type": "string" },
+    "source_urls": { "type": "array", "items": { "type": "string" } },
+    "last_checked": { "type": "string" },
+    "next_action": { "type": "string" }
+  }
+}

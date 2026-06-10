@@ -15,6 +15,7 @@ description: PhD application CRM skill for maintaining advisor longlists, shortl
 - `data/outreach-log.csv`: detailed outreach audit log.
 - `data/interaction-log.csv`: meetings, replies, and other interactions.
 - `data/application-crm.csv`: overall application state.
+- `.advisor-memory/events.jsonl`: private local audit trail for meaningful CRM changes.
 
 ## Procedure
 
@@ -23,9 +24,10 @@ description: PhD application CRM skill for maintaining advisor longlists, shortl
 3. Keep evidence rows in `data/evidence-matrix.csv`, not only in prose.
 4. Keep outreach rows in `data/outreach-log.csv` or `data/outreach.csv`.
 5. Use stable statuses: discovered, screened, dossier-ready, outreach-ready, contacted, replied, archived, priority.
-6. Never mark outreach as approved unless the user explicitly approved it.
-7. Summarize changes after updates.
+6. Create or propose memory events for meaningful CRM changes when `.advisor-memory/` is available.
+7. Never mark outreach as approved unless the user explicitly approved it.
+8. Summarize changes after updates, including memory event IDs when events were created.
 
 ## Rule
 
-The CSVs are the operational truth. Reports and chat summaries should agree with them.
+The CSVs are the operational truth. Memory events are the audit trail. Memory snapshots are generated read models and are not the source of truth. Reports and chat summaries should agree with the CSVs.

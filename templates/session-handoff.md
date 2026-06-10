@@ -6,6 +6,10 @@
 
 ## Files Updated
 
+## Memory Event IDs
+
+List memory event IDs created in this session. If no event was created, explain why.
+
 ## Advisor Candidates Added
 
 ## Advisor Candidates Removed
@@ -15,6 +19,10 @@
 ## Important Unknowns
 
 ## Next Actions
+
+## Snapshot Status
+
+Were `.advisor-memory/snapshots/` regenerated? yes/no/not available.
 
 ## Suggested Prompt For Next Session
 

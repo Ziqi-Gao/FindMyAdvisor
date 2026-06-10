@@ -1,0 +1,5 @@
+source_id,source_type,title,url,publisher,date_checked,evidence_label,notes,is_private
+src_fake_faculty_page,official_page,Mira Exampleton Fake Faculty Page,https://example.edu/fake/mira-exampleton,Example State University,2026-01-02,fact,Fake official profile for documentation only,false
+src_fake_lab_page,lab_page,Example Reliability Lab,https://example.edu/fake/reliability-lab,Example State University,2026-01-02,fact,Fake lab page for documentation only,false
+src_fake_paper,paper,Reliable Evaluation of Imaginary Language Models,https://example.org/fake/reliable-evaluation,Journal of Fake AI,2026-01-02,fact,Fake paper source for documentation only,false
+src_fake_admissions_page,admissions_page,Example State CS PhD Admissions,https://example.edu/fake/cs-phd-admissions,Example State University,2026-01-02,unknown,Fake admissions page with intentionally unclear route,false

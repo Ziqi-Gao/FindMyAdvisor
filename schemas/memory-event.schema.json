@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Advisor Memory Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["event_id", "timestamp", "actor", "event_type", "object_type", "object_id", "faculty_id", "program_id", "claim_ids", "source_ids", "summary", "before", "after", "evidence_note", "confidence", "risk_level", "next_actions", "files_touched", "human_approval_required", "human_approved"],
+  "properties": {
+    "event_id": {"type": "string", "minLength": 1},
+    "timestamp": {"type": "string"},
+    "actor": {"type": "string", "enum": ["Codex", "User", "Applicant", "Human reviewer", "Subagent", "Automation", "System"]},
+    "event_type": {"type": "string", "enum": ["applicant_profile_updated", "search_batch_started", "faculty_discovered", "faculty_screened", "faculty_archived", "faculty_priority_changed", "dossier_created", "dossier_updated", "evidence_added", "evidence_revised", "risk_added", "risk_resolved", "program_requirement_checked", "funding_checked", "paper_reading_note_added", "outreach_drafted", "outreach_audited", "outreach_approved", "outreach_sent", "reply_received", "meeting_logged", "decision_made", "weekly_review_completed", "handoff_written"]},
+    "object_type": {"type": "string", "enum": ["applicant_profile", "search_batch", "faculty", "program", "evidence", "risk", "dossier", "paper", "funding", "program_requirement", "outreach", "reply", "meeting", "decision", "weekly_review", "handoff", "source", "snapshot"]},
+    "object_id": {"type": "string", "minLength": 1},
+    "faculty_id": {"type": ["string", "null"]},
+    "program_id": {"type": ["string", "null"]},
+    "claim_ids": {"type": "array", "items": {"type": "string"}},
+    "source_ids": {"type": "array", "items": {"type": "string"}},
+    "summary": {"type": "string", "minLength": 1},
+    "before": {"type": "object"},
+    "after": {"type": "object"},
+    "evidence_note": {"type": "string"},
+    "confidence": {"type": "string", "enum": ["low", "medium", "high", "unknown"]},
+    "risk_level": {"type": "string", "enum": ["none", "low", "medium", "high", "blocking", "unknown"]},
+    "next_actions": {"type": "array", "items": {"type": "string"}},
+    "files_touched": {"type": "array", "items": {"type": "string"}},
+    "human_approval_required": {"type": "boolean"},
+    "human_approved": {"type": "boolean"}
+  }
+}
