@@ -5,6 +5,8 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -32,6 +34,13 @@ def write_markdown(path: Path, title: str, lines):
     path.write_text("\n".join(body) + "\n", encoding="utf-8")
 
 
+def resolve_out_dir(raw_out: str) -> Path:
+    normalized = raw_out.replace("\\", "/")
+    if os.name == "nt" and normalized.startswith("/tmp/"):
+        return Path(tempfile.gettempdir()) / normalized.removeprefix("/tmp/")
+    return Path(raw_out)
+
+
 def build_snapshots(events):
     current_state, next_actions, risks = [], [], []
     for event in events:
@@ -52,7 +61,7 @@ def main(argv=None):
     args = parser.parse_args(argv)
     events = read_events(Path(args.events))
     read_sources(Path(args.sources))
-    out_dir = Path(args.out)
+    out_dir = resolve_out_dir(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
     current_state, next_actions, risks = build_snapshots(events)
     write_markdown(out_dir / "current-state.md", "Current State", current_state)
