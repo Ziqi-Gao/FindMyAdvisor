@@ -1,0 +1,22 @@
+{
+  "event_id": "evt_template_replace_me",
+  "timestamp": "2026-01-02T00:00:00Z",
+  "actor": "Codex",
+  "event_type": "faculty_discovered",
+  "object_type": "faculty",
+  "object_id": "fake-faculty-id",
+  "faculty_id": "fake-faculty-id",
+  "program_id": "fake-program-id",
+  "claim_ids": ["claim_fake_001"],
+  "source_ids": ["src_fake_001"],
+  "summary": "Fake example summary. Replace with a real local summary in .advisor-memory only.",
+  "before": {},
+  "after": {"status": "discovered"},
+  "evidence_note": "Fact: fake source says fake faculty works on fake topic. Inference: fake fit is plausible.",
+  "confidence": "medium",
+  "risk_level": "low",
+  "next_actions": ["Replace fake fields before appending to a private local memory log."],
+  "files_touched": ["data/advisors.csv"],
+  "human_approval_required": false,
+  "human_approved": false
+}

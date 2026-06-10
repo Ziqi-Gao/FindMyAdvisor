@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Advisor Memory Source",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["source_id", "source_type", "title", "url", "publisher", "date_checked", "evidence_label", "notes", "is_private"],
+  "properties": {
+    "source_id": {"type": "string", "minLength": 1},
+    "source_type": {"type": "string", "enum": ["official_page", "lab_page", "admissions_page", "paper", "grant", "student_page", "email", "meeting", "other"]},
+    "title": {"type": "string", "minLength": 1},
+    "url": {"type": "string"},
+    "publisher": {"type": "string"},
+    "date_checked": {"type": "string"},
+    "evidence_label": {"type": "string", "enum": ["fact", "inference", "unknown", "risk_lead"]},
+    "notes": {"type": "string"},
+    "is_private": {"type": "boolean"}
+  }
+}

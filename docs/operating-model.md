@@ -39,6 +39,12 @@ Archive candidates when:
 - Recent activity cannot be found after reasonable checking.
 - Program constraints make the application impractical.
 
+## Persistent Advisor Memory
+
+CSV trackers are operational truth. Memory events are an append-only audit trail that explains how and why advisor, program, evidence, outreach, and decision state changed. Memory snapshots are generated read models for session resume and are not the source of truth.
+
+Use memory after meaningful changes. Important decisions should include source IDs, confidence, risk level, and next actions.
+
 ## Maintenance Rule
 
-Every meaningful change should update one of: CSV trackers, dossier files, handoff files, or weekly review notes.
+Every meaningful change should update one of: CSV trackers, memory events, dossier files, handoff files, or weekly review notes. When memory events are created, list their event IDs in the handoff.
