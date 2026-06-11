@@ -53,9 +53,11 @@ Project-scoped Codex skills live in `.codex/skills/`:
 - `advisor-memory-manager` - local append-only advisor memory events, source records, and generated snapshots.
 - `academic-research-suite` - broader literature review and proposal support.
 - `advisor-workflow-roles` - Scout, Filter, Auditor, Tracker, and Copywriter roles adapted from summer research agent workflows.
+- `advisor-batch-agent-roles` - fixed large-batch advisor-search role ownership, quality gates, and subagent registry protocol.
 - `application-crm` - longlist, shortlist, outreach, and status tracking.
 - `funding-signal-check` - NSF, NIH, and lab funding signal checks.
 - `program-requirements-audit` - deadline, requirement, and faculty-contact-policy checks.
+- `admission-difficulty-calibrator` - applicant-specific admission difficulty and portfolio balance scoring.
 - `risk-and-evidence-audit` - source-backed evidence matrix and risk review.
 - `outreach-auditor` - email draft review and human approval gate.
 

@@ -4,7 +4,7 @@ Use after an advisor longlist or dossier batch. This workflow adds applicant-spe
 
 ## Role Ownership
 
-This workflow is owned by the `Difficulty Calibrator` role from `skills/advisor-batch-agent-roles/`.
+This workflow is owned by the `Difficulty Calibrator` role from the installed `advisor-batch-agent-roles` project skill.
 
 The Difficulty Calibrator may gather evidence and recommend rows, but the CRM Tracker remains the single writer for `data/program-difficulty.csv`.
 
@@ -29,7 +29,7 @@ The Difficulty Calibrator may gather evidence and recommend rows, but the CRM Tr
 7. If a program is moonshot/high-reach, require a paper-card-backed hook before spending outreach/application effort.
 8. If the portfolio has too many high-reach/moonshot programs, launch a search batch for strong-fit target-reach programs.
 9. Rebuild the composite score table and ranked master table after difficulty changes.
-10. Run the validation gate from `skills/advisor-batch-agent-roles/`.
+10. Run the validation gate from `advisor-batch-agent-roles`.
 
 ## Output
 
