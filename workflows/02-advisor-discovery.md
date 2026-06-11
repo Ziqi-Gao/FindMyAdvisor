@@ -4,7 +4,7 @@ Adapted from `find_my_supervisor` and the Scout role.
 
 ## Required Skill
 
-Use `skills/advisor-batch-agent-roles/` for every substantial advisor-search batch.
+Use the installed `advisor-batch-agent-roles` project skill for every substantial advisor-search batch.
 Read `docs/subagent-registry.md` before assigning subagent work.
 
 Core rule:

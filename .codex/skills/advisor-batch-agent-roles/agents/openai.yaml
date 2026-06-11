@@ -1,0 +1,3 @@
+display_name: Advisor Batch Agent Roles
+short_description: Agent roles and batch quality gates.
+default_prompt: Use advisor-batch-agent-roles to run a source-backed PhD advisor-search batch with fixed roles, quality gates, CRM updates, composite ranking, and a handoff.

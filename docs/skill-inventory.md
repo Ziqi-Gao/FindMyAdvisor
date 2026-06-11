@@ -19,11 +19,11 @@ This is the implementation record for the skill and workflow search.
 | research-pilot-memory | https://github.com/QZhang2111/Research-Pilot | `.codex/skills/research-pilot-memory/` | Lightweight project memory and decision logs. |
 | academic-research-suite | https://github.com/Imbad0202/academic-research-skills-codex | `.codex/skills/academic-research-suite/` | Literature review and proposal support. |
 | advisor-workflow-roles | https://github.com/jiasiqi312/summer-research-agent | `.codex/skills/advisor-workflow-roles/` | Scout, Filter, Auditor, Tracker, Copywriter roles adapted for PhD advisor search. |
-| advisor-batch-agent-roles | Built from current long-running workflow needs | `skills/advisor-batch-agent-roles/` pending install into `.codex/skills/` | Fixed multi-agent role ownership, subagent registry/reuse protocol, batch quality gates, single-writer CRM rule, validation, and handoff requirements. |
+| advisor-batch-agent-roles | Built from current long-running workflow needs | `.codex/skills/advisor-batch-agent-roles/` | Fixed multi-agent role ownership, subagent registry/reuse protocol, batch quality gates, single-writer CRM rule, validation, and handoff requirements. |
 | application-crm | Adapted from tracker workflows | `.codex/skills/application-crm/` | Keep longlist, shortlist, outreach, and status data current. |
 | funding-signal-check | Advisor-search extension | `.codex/skills/funding-signal-check/` | NSF, NIH, and lab funding signal review. |
 | program-requirements-audit | Self-built from application workflow needs | `.codex/skills/program-requirements-audit/` | Deadlines, requirements, contact policy, and program feasibility. |
-| admission-difficulty-calibrator | Self-built from portfolio strategy needs | `skills/admission-difficulty-calibrator/` pending install into `.codex/skills/` | Applicant-specific reach/target/moonshot scoring and difficulty penalties. |
+| admission-difficulty-calibrator | Self-built from portfolio strategy needs | `.codex/skills/admission-difficulty-calibrator/` | Applicant-specific reach/target/moonshot scoring and difficulty penalties. |
 | risk-and-evidence-audit | Self-built from advisor-search risk controls | `.codex/skills/risk-and-evidence-audit/` | Evidence matrix, confidence, source dates, and risk cleanup. |
 | outreach-auditor | Adapted from summer-research-agent human approval loop | `.codex/skills/outreach-auditor/` | Review outreach drafts before human approval. |
 
